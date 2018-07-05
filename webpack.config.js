@@ -48,7 +48,8 @@ module.exports = {
 
 	// Set up dev server configurations
 	devServer: {
-		contentBase: path.join( __dirname, 'public' ) // result /Applications/MAMP/htdocs/react-course-project/indecision-app/public
+		contentBase: path.join( __dirname, 'public' ), // result /Applications/MAMP/htdocs/react-course-project/indecision-app/public
+		historyApiFallback: true
 	}
 };
 

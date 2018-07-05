@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import IndecisionApp from './components/IndecisionApp';
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 import 'normalize.css/normalize.css'
 import './styles/style.scss'
 
 
+
 const app = document.getElementById( 'appId' );
-ReactDOM.render( <IndecisionApp options={ ['Neha', 'Smita'] }/>, app );
+ReactDOM.render( routes, app );
