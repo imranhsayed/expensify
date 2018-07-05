@@ -1,48 +1,13 @@
-// Define a component
-const ExpenseDashboardPage = () => (
-	<div>
-		This is from my dashboard component
-	</div>
-);
+import React from 'react';
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
+import AddExpenseComponent from '../components/AddExpenseComponent';
+import EditExpensePage from '../components/EditExpensePage';
+import HelpPage from '../components/HelpPage';
+import Header from '../components/Header';
+import NotFound from '../components/NoFound';
 
-const AddExpenseComponent = () => (
-	<div>
-		This is my expense component
-	</div>
-);
-
-const EditExpensePage = () => (
-	<div>
-		This is my edit expense component
-	</div>
-);
-
-const HelpPage = () => (
-	<div>
-		This is my HelpPage component
-	</div>
-);
-
-const Header = () => (
-	<header>
-		{/*the class "is-active" will only be applied to the link of the page we are currently on.
-		 Also setting exact prop value to true will ensure 'is-active' class will only be applied if we are on that url path page.*/}
-		<NavLink to="/" activeClassName="is-active" exact={ true }>Dashboard</NavLink>
-		<NavLink to="/create" activeClassName="is-active">Add Expense</NavLink>
-		<NavLink to="/edit" activeClassName="is-active">Edit Expense</NavLink>
-		<NavLink to="/help" activeClassName="is-active" >Help</NavLink>
-		<h1>Expensify heading</h1>
-	</header>
-);
-
-const NotFound = () => (
-	<div>
-		{/* Here Link tag will will provide the link to the path defined her in 'to' */}
-		404 <Link to="/">Go home</Link>
-	</div>
-);
-
-const routes = (
+const AppRouter = () => (
 	<BrowserRouter>
 		{/*We are wrapping the Route inside a div so that we acn define multiple routes.*/}
 		<div>
@@ -55,7 +20,7 @@ const routes = (
 				 exact by default is false , since set to true will ensure the url path exactly matches the value of path here.*/}
 				<Route path="/" component={ExpenseDashboardPage} exact={ true }/>
 				<Route path="/create" component={AddExpenseComponent} />
-				<Route path="/edit" component={EditExpensePage} />
+				<Route path="/edit/:id" component={EditExpensePage} />
 				<Route path="/help" component={HelpPage} />
 				{/* If it does not match the urls defined in route path above it will render the NotFound component*/}
 				<Route component={NotFound} />
@@ -63,3 +28,5 @@ const routes = (
 		</div>
 	</BrowserRouter>
 );
+
+export default AppRouter;
